@@ -64,17 +64,25 @@ return [
     |
     */
 
+    //SE OCULTO PORQUE SE INSTALO LA CLASE ENTRUST PARA EL MANEJO DE ROLES QUE ESTA LUEGO DE ESTE
+    /*'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],*/
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+            'table' => 'users',
         ],
+    ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ],
 
     /*
     |--------------------------------------------------------------------------
