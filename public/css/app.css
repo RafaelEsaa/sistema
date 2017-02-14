@@ -7688,6 +7688,10 @@ button.close {
   }
 }
 
+.login-form {
+  padding-top: 300px;
+}
+
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 /*!
@@ -15447,5 +15451,11 @@ button.close {
   display: block;
   margin-top: 10px;
 }
+
+.login-form {
+  padding-top: 110px;
+}
+
+/* Dashboard */
 
 /*# sourceMappingURL=app.css.map */
