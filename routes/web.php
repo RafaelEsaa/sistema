@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard-admin');
 });
+
+Route::get('/register-student', 'UserController@getViewRegisterStudent');
+
+Route::post('/register-student', 'UserController@registerStudent');

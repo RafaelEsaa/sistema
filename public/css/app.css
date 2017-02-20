@@ -7688,8 +7688,12 @@ button.close {
   }
 }
 
-.login-form {
-  padding-top: 300px;
+.no-padding-right {
+  padding-right: 0px;
+}
+
+.no-padding {
+  padding: 0px;
 }
 
 @charset "UTF-8";
@@ -15383,6 +15387,10 @@ button.close {
 }
 
 /*Style Login*/
+.login-form {
+  padding-top: 300px;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -15480,6 +15488,21 @@ body {
   .sidebar-nav .navbar li a {
     padding-top: 12px;
     padding-bottom: 12px;
+  }
+}
+
+.header-padding {
+  padding: 15px;
+  background-color: #EEEEEE;
+}
+
+.navbar-default {
+  height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-default {
+    height: auto;
   }
 }
 

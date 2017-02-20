@@ -8,6 +8,10 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-.login-form{
-  padding-top: 300px;
+.no-padding-right{
+  padding-right: 0px;
+}
+
+.no-padding{
+  padding: 0px;
 }
