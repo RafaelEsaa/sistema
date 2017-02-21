@@ -11,9 +11,14 @@
         <div class="col-sm-8 col-sm-offset-2">
             <form action="/register-student" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group">
+                <div class="form-group form-group{{ $errors->register->has('primer_nombre') ? ' has-error' : '' }}">
                     <label>Primer Nombre</label>
                     <input type="text" name="primer_nombre" class="form-control" placeholder="Primer Nombre">
+                    @if ($errors->register->has('primer_nombre'))
+                        <p class="message-danger">
+                            {{ $errors->register->first('primer_nombre') }}
+                        </p>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label>Segundo Nombre</label>

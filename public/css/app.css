@@ -7696,6 +7696,11 @@ button.close {
   padding: 0px;
 }
 
+/*Message*/
+.message-danger {
+  color: red;
+}
+
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 /*!
