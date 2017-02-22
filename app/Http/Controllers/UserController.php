@@ -37,6 +37,9 @@ class UserController extends Controller
         $userStudent->password = $password;
 
         $userStudent->save();
+
+        //return back()->withInput();
+        return back()->with('status', 'Estudiante Inscrito!');
     }
 
 

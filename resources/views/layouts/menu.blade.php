@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-3 no-padding-right">
         <div class="sidebar-nav">
-            <div class="navbar navbar-default" role="navigation">
+            <div class="navbar navbar-default margin-bottom" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>

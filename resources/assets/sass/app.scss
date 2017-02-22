@@ -8,12 +8,24 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body{
+  overflow-x: hidden;
+}
+
 .no-padding-right{
-  padding-right: 0px;
+  padding-right: 0px !important;
+}
+
+.no-padding-left{
+  padding-left: 0px !important;
 }
 
 .no-padding{
-  padding: 0px;
+  padding: 0px !important;
+}
+
+.margin-bottom{
+  margin-bottom: 0px;
 }
 
 /*Message*/

@@ -7688,12 +7688,24 @@ button.close {
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .no-padding-right {
-  padding-right: 0px;
+  padding-right: 0px !important;
+}
+
+.no-padding-left {
+  padding-left: 0px !important;
 }
 
 .no-padding {
-  padding: 0px;
+  padding: 0px !important;
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
 }
 
 /*Message*/
@@ -15470,10 +15482,6 @@ button.close {
 }
 
 /* Dashboard */
-body {
-  overflow: hidden;
-}
-
 /* make sidebar nav vertical */
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
