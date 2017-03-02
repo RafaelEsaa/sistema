@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="col-sm-9 no-padding">
-        <h2 class="text-center">Datos del Estudiante</h2>
+        <h2 class="text-center">Datos del Representante</h2>
         <div class="col-sm-12">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -16,7 +16,7 @@
             @endif
         </div>
         <div class="col-sm-8 col-sm-offset-2">
-            <form action="/register-student" method="POST">
+            <form action="" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group form-group{{ $errors->register->has('primer_nombre') ? ' has-error' : '' }}">
                     <label>Primer Nombre</label>
@@ -48,11 +48,11 @@
                 <div class="form-group form-group{{ $errors->register->has('segundo_apellido') ? ' has-error' : '' }}">
                     <label>Segundo Apellido</label>
                     <input type="text" name="segundo_apellido" value="{{ old('segundo_apellido') }}" class="form-control" placeholder="Segundo Apellido">
-                        @if ($errors->register->has('segundo_apellido'))
-                            <p class="message-danger">
-                                {{ $errors->register->first('segundo_apellido') }}
-                            </p>
-                        @endif
+                    @if ($errors->register->has('segundo_apellido'))
+                        <p class="message-danger">
+                            {{ $errors->register->first('segundo_apellido') }}
+                        </p>
+                    @endif
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('fecha_nacimiento') ? ' has-error' : '' }}">
                     <label>Fecha Nacimiento</label>
@@ -81,54 +81,23 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('email') ? ' has-error' : '' }}">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
-                    @if ($errors->register->has('email'))
+                <div class="form-group form-group{{ $errors->register->has('sueldo_mensual') ? ' has-error' : '' }}">
+                    <label for="exampleInputEmail1">Sueldo Mensual</label>
+                    <input type="text" name="sueldo_mensual" value="{{ old('sueldo_mensual') }}" class="form-control" placeholder="Sueldo Mensual">
+                    @if ($errors->register->has('sueldo_mensual'))
                         <p class="message-danger">
-                            {{ $errors->register->first('email') }}
+                            {{ $errors->register->first('sueldo_mensual') }}
                         </p>
                     @endif
                 </div>
 
-                <div class="form-group">
-                    <label>Representante</label>
-                    <input type="text" placeholder="Buscar Representante" class="form-control" id="search_text">
-                    <input type="hidden" name="representante_id" id="buscado">
-                </div>
 
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
     </div>
-</div>
+    </div>
 
-    <script>
-        $(document).ready(function() {
-            src = "{{ route('searchajax') }}";
-            $('#search_text').autocomplete({
-                source: function(request, response) {
-                    $.ajax({
-                        url: src,
-                        dataType: "json",
-                        data: {
-                            term : request.term
-                        },
-                        success: function(data) {
-                            console.log(data)
-                            response(data);
 
-                        }
-                    });
-                },
-                min_length: 3,
-                select: function(event, ui) {
-                    console.log(ui)
-                    $('#buscado').val(ui.item.id);
-                }
-
-            });
-        });
-    </script>
 
 @endsection

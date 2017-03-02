@@ -38,4 +38,9 @@ class User extends Authenticatable
         }
         return implode($pass); //turn the array into a string
     }
+
+    public function representantes()
+    {
+        return $this->belongsTo('App\Models\Representante');
+    }
 }
