@@ -12,19 +12,30 @@ class RepresentanteController extends Controller{
         return view('representante/register-representante');
     }
 
-    public function autoComplete(Request $request) {
+    public function registerRepresentante(Request $request) {
 
-        $query = $request->get('term','');
+        $data = $request->all();
 
-        $representante = Representante::where('primer_nombre','LIKE','%'.$query.'%')->get();
-
-        $data=array();
-        foreach ($representante as $product) {
-            $data[]=array('value'=>$product->primer_nombre.' '.$product->segundo_nombre.' '.$product->primer_apellido,'id'=>$product->id);
+        $validator = UserValidations::registerRepresentanteValidation($data);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator, 'register')
+                ->withInput();
         }
-        if(count($data))
-            return $data;
-        else
-            return ['value'=>'No Result Found','id'=>''];
+
+        $userRepresentante = new Representante();
+        $userRepresentante->cedula= $data['cedula'];
+        $userRepresentante->primer_nombre = $data['primer_nombre'];
+        $userRepresentante->segundo_nombre = $data['segundo_nombre'];
+        $userRepresentante->primer_apellido = $data['primer_apellido'];
+        $userRepresentante->segundo_apellido = $data['segundo_apellido'];
+        $userRepresentante->fecha_nacimiento = $data['fecha_nacimiento'];
+        $userRepresentante->telefono = $data['telefono'];
+        $userRepresentante->direccion = $data['direccion'];
+        $userRepresentante->sueldo_mensual = $data['sueldo_mensual'];
+
+        $userRepresentante->save();
+
+        return back()->with('status', 'Representante Registrado!');
     }
 }

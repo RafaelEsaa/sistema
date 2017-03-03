@@ -15,7 +15,7 @@ class UserController extends Controller
 
         $query = $request->get('term','');
 
-        $representante = Representante::where('primer_nombre','LIKE','%'.$query.'%')->get();
+        $representante = Representante::where('cedula','LIKE','%'.$query.'%')->get();
 
         $data=array();
         foreach ($representante as $product) {
@@ -60,6 +60,7 @@ class UserController extends Controller
         }
 
         $userStudent = new User();
+        $userStudent->cedula= $data['cedula'];
         $userStudent->primer_nombre = $data['primer_nombre'];
         $userStudent->segundo_nombre = $data['segundo_nombre'];
         $userStudent->primer_apellido = $data['primer_apellido'];
@@ -73,8 +74,9 @@ class UserController extends Controller
         $userStudent->representante_id = $data['representante_id'];
 
         $userStudent->save();
+        $userStudent->roles()->attach(1);
 
-        return back()->with('status', 'Estudiante Inscrito y Representante Registrado!');
+        return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
     }
 
 

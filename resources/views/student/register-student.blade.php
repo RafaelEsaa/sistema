@@ -18,9 +18,18 @@
         <div class="col-sm-8 col-sm-offset-2">
             <form action="/register-student" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="form-group form-group{{ $errors->register->has('cedula') ? ' has-error' : '' }}">
+                    <label>Cedula de Identidad</label>
+                    <input type="text" name="cedula" value="{{ old('cedula') }}" class="form-control" maxlength="8" placeholder="Cedula">
+                    @if ($errors->register->has('cedula'))
+                        <p class="message-danger">
+                            {{ $errors->register->first('cedula') }}
+                        </p>
+                    @endif
+                </div>
                 <div class="form-group form-group{{ $errors->register->has('primer_nombre') ? ' has-error' : '' }}">
                     <label>Primer Nombre</label>
-                    <input type="text" name="primer_nombre" value="{{ old('primer_nombre') }}" class="form-control" placeholder="Primer Nombre">
+                    <input type="text" name="primer_nombre" value="{{ old('primer_nombre') }}" maxlength="45" class="form-control" placeholder="Primer Nombre">
                     @if ($errors->register->has('primer_nombre'))
                         <p class="message-danger">
                             {{ $errors->register->first('primer_nombre') }}
@@ -29,7 +38,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('segundo_nombre') ? ' has-error' : '' }}">
                     <label>Segundo Nombre</label>
-                    <input type="text" name="segundo_nombre" value="{{ old('segundo_nombre') }}" class="form-control" placeholder="Segundo Nombre">
+                    <input type="text" name="segundo_nombre" value="{{ old('segundo_nombre') }}" class="form-control" maxlength="45" placeholder="Segundo Nombre">
                     @if ($errors->register->has('segundo_nombre'))
                         <p class="message-danger">
                             {{ $errors->register->first('segundo_nombre') }}
@@ -38,7 +47,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('primer_apellido') ? ' has-error' : '' }}">
                     <label>Primer Apellido</label>
-                    <input type="text" name="primer_apellido" value="{{ old('primer_apellido') }}" class="form-control" placeholder="Primer Apellido">
+                    <input type="text" name="primer_apellido" value="{{ old('primer_apellido') }}" class="form-control" maxlength="45" placeholder="Primer Apellido">
                     @if ($errors->register->has('primer_apellido'))
                         <p class="message-danger">
                             {{ $errors->register->first('primer_apellido') }}
@@ -47,7 +56,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('segundo_apellido') ? ' has-error' : '' }}">
                     <label>Segundo Apellido</label>
-                    <input type="text" name="segundo_apellido" value="{{ old('segundo_apellido') }}" class="form-control" placeholder="Segundo Apellido">
+                    <input type="text" name="segundo_apellido" value="{{ old('segundo_apellido') }}" class="form-control" maxlength="45" placeholder="Segundo Apellido">
                         @if ($errors->register->has('segundo_apellido'))
                             <p class="message-danger">
                                 {{ $errors->register->first('segundo_apellido') }}
@@ -56,7 +65,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('fecha_nacimiento') ? ' has-error' : '' }}">
                     <label>Fecha Nacimiento</label>
-                    <input type="date" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" class="form-control" placeholder="Fecha Nacimiento">
+                    <input type="date" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" class="form-control" maxlength="45" placeholder="Fecha Nacimiento">
                     @if ($errors->register->has('fecha_nacimiento'))
                         <p class="message-danger">
                             {{ $errors->register->first('fecha_nacimiento') }}
