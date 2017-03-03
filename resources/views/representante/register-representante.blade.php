@@ -16,8 +16,17 @@
             @endif
         </div>
         <div class="col-sm-8 col-sm-offset-2">
-            <form action="" method="POST">
+            <form action="/register-representante" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="form-group form-group{{ $errors->register->has('cedula') ? ' has-error' : '' }}">
+                    <label>Cedula</label>
+                    <input type="text" name="cedula" value="{{ old('cedula') }}" class="form-control" placeholder="Cedula">
+                    @if ($errors->register->has('cedula'))
+                        <p class="message-danger">
+                            {{ $errors->register->first('cedula') }}
+                        </p>
+                    @endif
+                </div>
                 <div class="form-group form-group{{ $errors->register->has('primer_nombre') ? ' has-error' : '' }}">
                     <label>Primer Nombre</label>
                     <input type="text" name="primer_nombre" value="{{ old('primer_nombre') }}" class="form-control" placeholder="Primer Nombre">

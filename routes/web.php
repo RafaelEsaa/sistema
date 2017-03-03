@@ -30,6 +30,8 @@ Route::get('searchajax',array('as'=>'searchajax','uses'=>'UserController@autoCom
 /*-- Representante --*/
 Route::get('/register-representante', 'RepresentanteController@getViewRegister');
 
+Route::post('/register-representante', 'RepresentanteController@registerRepresentante');
+
 
 
 

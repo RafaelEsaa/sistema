@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Representante;
+use App\Validations\RepresentanteValidations;
 
 class RepresentanteController extends Controller{
 
@@ -16,7 +17,7 @@ class RepresentanteController extends Controller{
 
         $data = $request->all();
 
-        $validator = UserValidations::registerRepresentanteValidation($data);
+        $validator = RepresentanteValidations::registerRepresentanteValidation($data);
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator, 'register')
