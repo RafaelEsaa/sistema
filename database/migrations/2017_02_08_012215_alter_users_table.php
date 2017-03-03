@@ -17,7 +17,8 @@ class AlterUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
 
             $table->dropColumn(['name']);
-            $table->string('primer_nombre')->after('id');
+            $table->integer('cedula')->after('id');
+            $table->string('primer_nombre')->after('cedula');
             $table->string('segundo_nombre')->after('primer_nombre');
             $table->string('primer_apellido')->after('segundo_nombre');
             $table->string('segundo_apellido')->after('primer_apellido');

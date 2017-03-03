@@ -33,17 +33,6 @@ class UserController extends Controller
 
     public function registerStudent(Request $request){
 
-        $data = $request->all();
-
-        dd($data);
-
-        $validator = UserValidations::registerValidation($data);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator, 'register')
-                ->withInput();
-        }
-
         /*$validator = RepresentanteValidations::registerRepresentanteValidation($data);
         if ($validator->fails()) {
             return redirect()->back()
@@ -61,6 +50,15 @@ class UserController extends Controller
                 ->withInput();
         }*/
 
+        $data = $request->all();
+
+        $validator = UserValidations::registerValidation($data);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator, 'register')
+                ->withInput();
+        }
+
         $userStudent = new User();
         $userStudent->primer_nombre = $data['primer_nombre'];
         $userStudent->segundo_nombre = $data['segundo_nombre'];
@@ -72,20 +70,9 @@ class UserController extends Controller
         $userStudent->email = $data['email'];
         $password = $userStudent->createPassword();
         $userStudent->password = $password;
-        $userStudent->representate_id = $data['representante_id'];
+        $userStudent->representante_id = $data['representante_id'];
 
-        /*$userRepresentante = new Representante();
-        $userRepresentante->primer_nombre = $data['primer_nombre_representante'];
-        $userRepresentante->segundo_nombre = $data['segundo_nombre_representante'];
-        $userRepresentante->primer_apellido = $data['primer_apellido_representante'];
-        $userRepresentante->segundo_apellido = $data['segundo_apellido_representante'];
-        $userRepresentante->fecha_nacimiento = $data['fecha_nacimiento_representante'];
-        $userRepresentante->telefono = $data['telefono_representante'];
-        $userRepresentante->direccion = $data['direccion_representante'];
-        $userRepresentante->sueldo_mensual = $data['sueldo_mensual_representante'];*/
-
-        //$userStudent->save();
-        //$userRepresentante->save();
+        $userStudent->save();
 
         return back()->with('status', 'Estudiante Inscrito y Representante Registrado!');
     }

@@ -37,19 +37,22 @@ class UserValidations
             'fecha_nacimiento.required' => 'Este campo no puede estar vacío',
             'fecha_nacimiento.date_format' => 'El aceptado es dd-mm-yyyy',
             'telefono.required' => 'Este campo no puede estar vacío',
-            'telefono.regex' => 'Este formato no es aceptado',
+            'telefono.regex' => 'Este formato no es aceptado. Ejm: 04141234567 / 4141234567',
+            'telefono.between' => 'Este campo debe tener entre 10 y 11 números. Ejm: 04141234567 / 4141234567',
             'direccion.required' => 'Este campo no puede estar vacío',
             'email.required' => 'Este campo no puede estar vacío',
             'email.email' => 'Este no es un formato correcto de correo',
+            'representante_id.required' => 'Este campo no puede estar vacío',
         );
         $rules = array(
             'primer_nombre'=>'required|between:3,10|alpha',
-            'segundo_nombre'=>'required|between:3,10',
-            'primer_apellido'=>'required|between:3,10',
-            'segundo_apellido'=>'between:3,10',
+            'segundo_nombre'=>'required|between:3,10|alpha',
+            'primer_apellido'=>'required|between:3,10|alpha',
+            'segundo_apellido'=>'between:3,10|alpha',
             'fecha_nacimiento'=>'date_format:"Y-m-d"|required',
-            'telefono' => 'required|regex:/^\+?\d+$/|between:10,14',
+            'telefono' => 'required|regex:/^\+?\d+$/|between:10,11',
             'email' => 'required|email',
+            'representante_id' => 'required',
         );
 
         $validator = \Validator::make($data, $rules, $messages);

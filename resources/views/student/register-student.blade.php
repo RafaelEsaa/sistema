@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('telefono') ? ' has-error' : '' }}">
                     <label>Telefono</label>
-                    <input type="text" name="telefono" value="{{ old('telefono') }}" class="form-control" placeholder="Telefono">
+                    <input type="text" name="telefono" value="{{ old('telefono') }}" class="form-control" maxlength="11" placeholder="Telefono">
                     @if ($errors->register->has('telefono'))
                         <p class="message-danger">
                             {{ $errors->register->first('telefono') }}
@@ -91,10 +91,15 @@
                     @endif
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->register->has('representante_id') ? ' has-error' : '' }}">
                     <label>Representante</label>
                     <input type="text" placeholder="Buscar Representante" class="form-control" id="search_text">
                     <input type="hidden" name="representante_id" id="buscado">
+                    @if ($errors->register->has('representante_id'))
+                        <p class="message-danger">
+                            {{ $errors->register->first('representante_id') }}
+                        </p>
+                    @endif
                 </div>
 
                 <button type="submit" class="btn btn-default">Submit</button>
