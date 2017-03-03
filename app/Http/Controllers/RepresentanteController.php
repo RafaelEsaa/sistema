@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\Representante;
 use App\Validations\RepresentanteValidations;
@@ -37,6 +38,12 @@ class RepresentanteController extends Controller{
 
         $userRepresentante->save();
 
-        return back()->with('status', 'Representante Registrado!');
+        if ($userRepresentante->save()){
+            $userRepresentante->roles()->attach(4);
+
+            return back()->with('status', 'Representante Registrado!');
+        }
+
+        return back()->with('status', 'Fallo el Registro!');
     }
 }

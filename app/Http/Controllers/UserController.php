@@ -76,7 +76,7 @@ class UserController extends Controller
         $userStudent->save();
 
         if ($userStudent->save()){
-            $userStudent->roles()->attach(4);
+            $userStudent->roles()->attach(5);
 
             return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
         }
