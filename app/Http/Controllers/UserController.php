@@ -72,6 +72,7 @@ class UserController extends Controller
         $userStudent->email = $data['email'];
         $password = $userStudent->createPassword();
         $userStudent->password = $password;
+        $userStudent->representate_id = $data['representante_id'];
 
         /*$userRepresentante = new Representante();
         $userRepresentante->primer_nombre = $data['primer_nombre_representante'];

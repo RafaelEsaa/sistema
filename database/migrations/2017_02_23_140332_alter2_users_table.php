@@ -16,7 +16,7 @@ class Alter2UsersTable extends Migration
         //
         Schema::table('users', function (Blueprint $table) {
 
-            $table->integer('representante_id')->unsigned()->after('password');;
+            $table->integer('representante_id')->nullable()->unsigned()->after('password');;
 
             $table->foreign('representante_id')->references('id')->on('representantes');
 
@@ -33,7 +33,7 @@ class Alter2UsersTable extends Migration
         //
         Schema::table('users', function (Blueprint $table) {
 
-            $table->dropColumn(['representante_id']);
+            $table->dropForeign(['representante_id']);
         });
     }
 }
