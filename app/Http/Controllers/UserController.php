@@ -74,9 +74,14 @@ class UserController extends Controller
         $userStudent->representante_id = $data['representante_id'];
 
         $userStudent->save();
-        $userStudent->roles()->attach(1);
 
-        return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
+        if ($userStudent->save()){
+            $userStudent->roles()->attach(4);
+
+            return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
+        }
+
+        return back()->with('status', 'Estudiante Inscrito y Representante NO Asignado!');
     }
 
 
