@@ -15,6 +15,7 @@ class CreateRepresentantesTable extends Migration
     {
         Schema::create('representantes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('cedula');
             $table->string('primer_nombre');
             $table->string('segundo_nombre');
             $table->string('primer_apellido');
