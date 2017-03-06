@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\Representante;
 use Illuminate\Http\Request;
 use App\Validations\UserValidations;
-use App\Validations\RepresentanteValidations;
 
 class UserController extends Controller
 {
