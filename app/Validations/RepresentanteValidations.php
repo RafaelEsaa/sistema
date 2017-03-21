@@ -33,6 +33,7 @@ class RepresentanteValidations
             'telefono.required' => 'Este campo no puede estar vacío',
             'telefono.regex' => 'Este formato no es aceptado',
             'direccion.required' => 'Este campo no puede estar vacío',
+            'direccion.between' => 'Este campo debe tener un minimo de 10 y maximo de 45 caracteres',
             'sueldo_mensual.required' => 'Este campo no puede estar vacío',
         );
         $rules = array(
@@ -43,6 +44,7 @@ class RepresentanteValidations
             'fecha_nacimiento'=>'date_format:"Y-m-d"|required',
             'telefono' => 'required|regex:/^\+?\d+$/|between:10,14',
             'sueldo_mensual' => 'required',
+            'direccion' => 'required|between:5,45',
         );
 
         $validator = \Validator::make($data, $rules, $messages);

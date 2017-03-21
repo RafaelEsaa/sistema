@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('direccion') ? ' has-error' : '' }}">
                     <label>Dirección</label>
-                    <input type="text" name="direccion" value="{{ old('direccion') }}" class="form-control" placeholder="Dirección">
+                    <input type="text" name="direccion" value="{{ old('direccion') }}" class="form-control" maxlength="45" placeholder="Dirección">
                     @if ($errors->register->has('direccion'))
                         <p class="message-danger">
                             {{ $errors->register->first('direccion') }}

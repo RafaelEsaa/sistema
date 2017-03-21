@@ -32,7 +32,10 @@ Route::get('/register-representante', 'RepresentanteController@getViewRegister')
 
 Route::post('/register-representante', 'RepresentanteController@registerRepresentante');
 
+/*-- Seccion --*/
+Route::get('/register-seccion', 'SeccionController@getViewRegisterSeccion');
 
+Route::post('/register-seccion', 'SeccionController@registerSeccion');
 
 
 

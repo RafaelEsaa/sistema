@@ -49,7 +49,7 @@ class UserValidations
             'representante_id.required' => 'Este campo no puede estar vacío',
         );
         $rules = array(
-            'cedula'=>'required|regex:/^\+?\d+$/|between:7,8|unique:users',
+            'cedula'=>'required|regex:/^\+?\d+$/|between:7,8|unique:users|unique:representantes',
             'primer_nombre'=>'required|between:3,10|alpha',
             'segundo_nombre'=>'required|between:3,10|alpha',
             'primer_apellido'=>'required|between:3,10|alpha',

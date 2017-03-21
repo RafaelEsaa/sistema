@@ -28,6 +28,7 @@ class UserController extends Controller
 
     public function getViewRegisterStudent(){
         return view('student/register-student');
+        return View::make('student/register-student')->with('saludo', 'Hola Mundo');
     }
 
     public function registerStudent(Request $request){
