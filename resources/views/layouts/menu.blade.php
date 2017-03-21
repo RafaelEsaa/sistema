@@ -41,8 +41,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Registrar Sección</a></li>
-                                <li><a href="#">Listar Sección</a></li>
+                                <li><a href="/register-seccion">Registrar Sección</a></li>
+                                <li><a href="/listar-seccion">Listar Sección</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Nav header</li>

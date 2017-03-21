@@ -37,6 +37,11 @@ Route::get('/register-seccion', 'SeccionController@getViewRegisterSeccion');
 
 Route::post('/register-seccion', 'SeccionController@registerSeccion');
 
+Route::get('/listar-seccion', 'SeccionController@getListSeccion');
+
+Route::get('/listar-seccion-disable/{id}', 'SeccionController@getDisableSeccion');
+
+Route::get('/listar-seccion-enable/{id}', 'SeccionController@getEnableSeccion');
 
 
 
