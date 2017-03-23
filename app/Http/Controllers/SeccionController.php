@@ -34,8 +34,8 @@ class SeccionController extends Controller
     public function getListSeccion(){
 
         $seccion = Seccion::all();
-
         return view('seccion/list-seccion')->with('seccion', $seccion);
+
     }
 
     public function getDisableSeccion($id){

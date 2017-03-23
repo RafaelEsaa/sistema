@@ -16,16 +16,37 @@
         </div>
 
         <div class="col-sm-8 col-sm-offset-2">
-            <form action="/" method="POST">
+            <form action="/register-grado" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group form-group{{ $errors->register->has('nombre_seccion') ? ' has-error' : '' }}">
                     <label>Grado</label>
-                    <input type="text" name="nombre_seccion" value="{{ old('nombre_seccion') }}" class="form-control" maxlength="1" placeholder="Grado">
-                    @if ($errors->register->has('nombre_seccion'))
+                    <select name="grados_id" class="form-control">
+
+                        @foreach($grado as $grados)
+                            <option value="{{$grados->id}}">{{$grados->nombre_grado}}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->register->has('grados_id'))
                         <p class="message-danger">
-                            {{ $errors->register->first('nombre_seccion') }}
+                            {{ $errors->register->first('grados_id') }}
                         </p>
                     @endif
+
+                    <label>Sección</label>
+                    <select name="secciones_id" class="form-control">
+
+                        @foreach($seccion as $secciones)
+                            <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->register->has('secciones_id'))
+                        <p class="message-danger">
+                            {{ $errors->register->first('secciones_id') }}
+                        </p>
+                    @endif
+
+                    <input name="ano_escolar_id" value="2016">
+                    <input name="user_id" value="1">
                 </div>
                 <input type="hidden" name="status" value="activo">
 

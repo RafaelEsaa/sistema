@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grado;
+use App\Models\Seccion;
 use App\Models\User;
 use App\Models\Representante;
 use Illuminate\Http\Request;
@@ -27,8 +29,13 @@ class UserController extends Controller
     }
 
     public function getViewRegisterStudent(){
-        return view('student/register-student');
-        return View::make('student/register-student')->with('saludo', 'Hola Mundo');
+        //return view('student/register-student');
+        $grado = Grado::all();
+        $seccion = Seccion::all();
+        return view('student/register-student')
+            ->with('saludo', 'Hola Mundo')
+            ->with('grado', $grado)
+            ->with('seccion', $seccion);
     }
 
     public function registerStudent(Request $request){
@@ -59,6 +66,8 @@ class UserController extends Controller
                 ->withInput();
         }
 
+        $grado = new Grado();
+
         $userStudent = new User();
         $userStudent->cedula= $data['cedula'];
         $userStudent->primer_nombre = $data['primer_nombre'];
@@ -77,6 +86,11 @@ class UserController extends Controller
 
         if ($userStudent->save()){
             $userStudent->roles()->attach(5);
+
+            //$tmpUser = User::all()->where('cedula', $data['cedula']);
+            //foreach ($tmpUser as $busqueda){
+                $grado->secciones()->attach([['seccion_id' => $request['seccion_id'], 'grado_id' => $data['grado_id'], 'ano_escolar_id' => 1, 'user_id' => $userStudent->id]]);
+            //}
 
             return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
         }

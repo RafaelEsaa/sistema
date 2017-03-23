@@ -111,6 +111,32 @@
                     @endif
                 </div>
 
+                <label>Grado</label>
+                <select name="grado_id" class="form-control">
+
+                    @foreach($grado as $grados)
+                        <option value="{{$grados->id}}">{{$grados->nombre_grado}}</option>
+                    @endforeach
+                </select>
+                @if ($errors->register->has('grados_id'))
+                    <p class="message-danger">
+                        {{ $errors->register->first('grados_id') }}
+                    </p>
+                @endif
+
+                <label>Sección</label>
+                <select name="seccion_id" class="form-control">
+
+                    @foreach($seccion as $secciones)
+                        <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
+                    @endforeach
+                </select>
+                @if ($errors->register->has('secciones_id'))
+                    <p class="message-danger">
+                        {{ $errors->register->first('secciones_id') }}
+                    </p>
+                @endif
+
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
