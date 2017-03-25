@@ -92,7 +92,7 @@
                 </div>
                 <div class="form-group form-group{{ $errors->register->has('sueldo_mensual') ? ' has-error' : '' }}">
                     <label for="exampleInputEmail1">Sueldo Mensual</label>
-                    <input type="text" name="sueldo_mensual" value="{{ old('sueldo_mensual') }}" class="form-control" placeholder="Sueldo Mensual">
+                    <input type="text" name="sueldo_mensual" maxlength="8" value="{{ old('sueldo_mensual') }}" class="form-control" placeholder="Sueldo Mensual">
                     @if ($errors->register->has('sueldo_mensual'))
                         <p class="message-danger">
                             {{ $errors->register->first('sueldo_mensual') }}

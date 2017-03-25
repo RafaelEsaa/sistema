@@ -46,6 +46,7 @@ class UserValidations
             'direccion.required' => 'Este campo no puede estar vacío',
             'email.required' => 'Este campo no puede estar vacío',
             'email.email' => 'Este no es un formato correcto de correo',
+            'email.unique' => 'Ya este usuario se encuentra registrado con este Email',
             'representante_id.required' => 'Este campo no puede estar vacío',
         );
         $rules = array(
@@ -56,7 +57,7 @@ class UserValidations
             'segundo_apellido'=>'between:3,10|alpha',
             'fecha_nacimiento'=>'date_format:"Y-m-d"|required',
             'telefono' => 'required|regex:/^\+?\d+$/|between:10,11',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'representante_id' => 'required',
         );
 

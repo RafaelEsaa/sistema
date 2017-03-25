@@ -41,7 +41,7 @@ class SeccionController extends Controller
     public function getDisableSeccion($id){
 
         $seccion = Seccion::find($id);
-        $seccion->status = "Deshabilitado";
+        $seccion->status = "disable";
         $seccion->save();
 
         return back();
@@ -50,7 +50,7 @@ class SeccionController extends Controller
     public function getEnableSeccion($id){
 
         $seccion = Seccion::find($id);
-        $seccion->status = "Habilitado";
+        $seccion->status = "enable";
         $seccion->save();
 
         return back();

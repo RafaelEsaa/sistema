@@ -111,31 +111,42 @@
                     @endif
                 </div>
 
-                <label>Grado</label>
-                <select name="grado_id" class="form-control">
+                <div class="form-group">
+                    <label>Grado</label>
+                        <select name="grado_id" class="form-control">
+                            @foreach($grado as $grados)
+                                @if($grados->status == "enable")
+                                        <option value="{{$grados->id}}">{{$grados->nombre_grado}}</option>
+                                @else
+                                    <p>No hay grado activo</p>
+                                @endif
+                            @endforeach
+                        </select>
+                </div>
 
-                    @foreach($grado as $grados)
-                        <option value="{{$grados->id}}">{{$grados->nombre_grado}}</option>
-                    @endforeach
-                </select>
-                @if ($errors->register->has('grados_id'))
-                    <p class="message-danger">
-                        {{ $errors->register->first('grados_id') }}
-                    </p>
-                @endif
+                <div class="form-group">
+                    <label>Sección</label>
+                        <select name="seccion_id" class="form-control">
+                            @foreach($seccion as $secciones)
+                                @if($secciones->status == "enable")
+                                        <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
+                                @else
+                                    <p>No hay seccion activa</p>
+                                @endif
+                            @endforeach
+                        </select>
+                </div>
 
-                <label>Sección</label>
-                <select name="seccion_id" class="form-control">
-
-                    @foreach($seccion as $secciones)
-                        <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
-                    @endforeach
-                </select>
-                @if ($errors->register->has('secciones_id'))
-                    <p class="message-danger">
-                        {{ $errors->register->first('secciones_id') }}
-                    </p>
-                @endif
+                <div class="form-group">
+                    <label>Año Escolar</label>
+                    <select name="ano_escolar_id" class="form-control">
+                            @if($anoEscolar->last()->status == "enable")
+                                <option value="{{$anoEscolar->last()->id}}">{{$anoEscolar->last()->nombre_ano}}</option>
+                            @else
+                                <p>No hay Año Escolar Activo</p>
+                            @endif
+                    </select>
+                </div>
 
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

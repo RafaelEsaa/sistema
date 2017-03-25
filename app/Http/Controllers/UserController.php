@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Grado;
 use App\Models\Seccion;
-use App\Models\User;
+use App\Models\AnoEscolar;
 use App\Models\Representante;
 use Illuminate\Http\Request;
 use App\Validations\UserValidations;
@@ -32,10 +33,12 @@ class UserController extends Controller
         //return view('student/register-student');
         $grado = Grado::all();
         $seccion = Seccion::all();
+        $anoEscolar = AnoEscolar::all()->where('status', 'enable');
         return view('student/register-student')
             ->with('saludo', 'Hola Mundo')
             ->with('grado', $grado)
-            ->with('seccion', $seccion);
+            ->with('seccion', $seccion)
+            ->with('anoEscolar', $anoEscolar);
     }
 
     public function registerStudent(Request $request){
@@ -85,12 +88,13 @@ class UserController extends Controller
         $userStudent->save();
 
         if ($userStudent->save()){
-            $userStudent->roles()->attach(5);
 
-            //$tmpUser = User::all()->where('cedula', $data['cedula']);
-            //foreach ($tmpUser as $busqueda){
-                $grado->secciones()->attach([['seccion_id' => $request['seccion_id'], 'grado_id' => $data['grado_id'], 'ano_escolar_id' => 1, 'user_id' => $userStudent->id]]);
-            //}
+            $userStudent->roles()->attach(5);
+            $grado->secciones()->attach([
+                    ['seccion_id' => $request['seccion_id'],
+                    'grado_id' => $data['grado_id'],
+                    'ano_escolar_id' => $data['ano_escolar_id'],
+                    'user_id' => $userStudent->id]]);
 
             return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
         }
