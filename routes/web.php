@@ -26,6 +26,10 @@ Route::post('/register-student', 'UserController@registerStudent');
 
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'UserController@autoComplete'));
 
+Route::get('/buscar-student', 'UserController@getViewBuscarStudent');
+
+Route::post('/buscar-student', 'UserController@buscarStudent');
+
 
 /*-- Representante --*/
 Route::get('/register-representante', 'RepresentanteController@getViewRegister');
@@ -46,8 +50,6 @@ Route::get('/listar-seccion-enable/{id}', 'SeccionController@getEnableSeccion');
 Route::get('/register-grado', 'GradoController@getViewRegisterGrado');
 
 Route::post('/register-grado', 'GradoController@registerGradoSeccion');
-
-
 
 
 

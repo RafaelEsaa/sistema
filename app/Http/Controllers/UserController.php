@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Grado;
 use App\Models\Seccion;
 use App\Models\AnoEscolar;
+use App\Models\GradoSeccion;
 use App\Models\Representante;
 use Illuminate\Http\Request;
 use App\Validations\UserValidations;
@@ -102,80 +103,17 @@ class UserController extends Controller
         return back()->with('status', 'Estudiante Inscrito y Representante NO Asignado!');
     }
 
+    public function getViewBuscarStudent(){
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+        return view('student/buscar-student');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function buscarStudent(Request $request){
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $data = $request->all();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $student = User::where('cedula', $data['cedula'])->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('student/buscar-student')->with('student', $student);
     }
 }

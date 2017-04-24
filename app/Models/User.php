@@ -39,13 +39,18 @@ class User extends Authenticatable
         return implode($pass); //turn the array into a string
     }
 
-    public function representantes()
+    public function representante()
     {
         return $this->belongsTo('App\Models\Representante');
     }
 
-    public function roles()
+    public function role()
     {
         return $this->belongsToMany('App\Models\Role');
+    }
+
+    public function gradoseccion()
+    {
+        return $this->hasMany('App\Models\GradoSeccion');
     }
 }

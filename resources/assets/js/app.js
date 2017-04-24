@@ -18,9 +18,3 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
-
-var zoom = function(){
-    alert("Funciono!");
-    //sirve esta tambien
-    //thumb.className = "thum grande";
-}

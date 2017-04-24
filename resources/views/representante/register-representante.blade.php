@@ -9,10 +9,6 @@
     <div class="col-sm-9 no-padding">
         <h2 class="text-center">Datos del Representante</h2>
 
-        <form action="">
-            <input type="button" value="Cambio de tamaño" onclick="zoom()">
-        </form>
-
         <div class="col-sm-12">
             @if (session('status'))
                 <div class="alert alert-success">
