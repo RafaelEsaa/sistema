@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\User;
 use App\Models\Grado;
 use App\Models\Seccion;
@@ -112,7 +113,18 @@ class UserController extends Controller
 
         $data = $request->all();
 
+        $validator = UserValidations::buscarStudent($data);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator, 'buscar')
+                ->withInput();
+        }
+
         $student = User::where('cedula', $data['cedula'])->first();
+
+        if (empty($student)){
+            return back()->with('error', 'Estudiante no encontrado!');
+        }
 
         return view('student/buscar-student')->with('student', $student);
     }

@@ -18,38 +18,21 @@
         <div class="col-sm-8 col-sm-offset-2">
             <form action="/register-grado" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group form-group{{ $errors->register->has('nombre_seccion') ? ' has-error' : '' }}">
+                <div class="form-group form-group{{ $errors->register->has('nombre_grado') ? ' has-error' : '' }}">
                     <label>Grado</label>
-                    <select name="grados_id" class="form-control">
-
-                        @foreach($grado as $grados)
-                            <option value="{{$grados->id}}">{{$grados->nombre_grado}}</option>
-                        @endforeach
+                    <select name="nombre_grado" class="form-control">
+                        <option value="1er año">1er año</option>
+                        <option value="2do año">2do año</option>
+                        <option value="3er año">3er año</option>
+                        <option value="4to año">4to año</option>
+                        <option value="5to año">5to año</option>
                     </select>
-                    @if ($errors->register->has('grados_id'))
+                    @if ($errors->register->has('nombre_grado'))
                         <p class="message-danger">
-                            {{ $errors->register->first('grados_id') }}
+                            {{ $errors->register->first('nombre_grado') }}
                         </p>
                     @endif
-
-                    <label>Sección</label>
-                    <select name="secciones_id" class="form-control">
-
-                        @foreach($seccion as $secciones)
-                            <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
-                        @endforeach
-                    </select>
-                    @if ($errors->register->has('secciones_id'))
-                        <p class="message-danger">
-                            {{ $errors->register->first('secciones_id') }}
-                        </p>
-                    @endif
-
-                    <input name="ano_escolar_id" value="2016">
-                    <input name="user_id" value="1">
                 </div>
-                <input type="hidden" name="status" value="activo">
-
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>

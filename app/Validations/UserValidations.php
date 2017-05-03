@@ -64,4 +64,20 @@ class UserValidations
         $validator = \Validator::make($data, $rules, $messages);
         return $validator;
     }
+
+
+    static function buscarStudent($data)
+    {
+        $messages = array(
+            'cedula.required' => 'Este campo no puede estar vacío',
+            'cedula.regex' => 'Este formato no es aceptado. Solo números sin puntos o letras',
+            'cedula.between' => 'Este campo debe tener entre 7 y 8 números.',
+        );
+        $rules = array(
+            'cedula'=>'required|regex:/^\+?\d+$/|between:7,8',
+        );
+
+        $validator = \Validator::make($data, $rules, $messages);
+        return $validator;
+    }
 }

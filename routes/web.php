@@ -49,9 +49,13 @@ Route::get('/listar-seccion-enable/{id}', 'SeccionController@getEnableSeccion');
 
 Route::get('/register-grado', 'GradoController@getViewRegisterGrado');
 
-Route::post('/register-grado', 'GradoController@registerGradoSeccion');
+Route::post('/register-grado', 'GradoController@registerGrado');
 
+Route::get('/listar-grado', 'GradoController@listarGrado');
 
+Route::get('/listar-grado-disable/{id}', 'GradoController@getDisableGrado');
+
+Route::get('/listar-grado-enable/{id}', 'GradoController@getEnableGrado');
 
 
 

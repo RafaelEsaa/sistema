@@ -10,12 +10,11 @@ class GradoValidations
     static function registerGradoValidation($data)
     {
         $messages = array(
-            'grados_id.required' => 'Este campo no puede estar vacío',
-            'secciones_id.required' => 'Este campo no puede estar vacío',
+            'nombre_grado.required' => 'Este campo no puede estar vacío',
+            'nombre_grado.unique' => 'Este campo ya esta registrado',
         );
         $rules = array(
-            'grados_id'=>'required',
-            'secciones_id'=>'required',
+            'nombre_grado'=>'required|unique:grados',
         );
 
         $validator = \Validator::make($data, $rules, $messages);
