@@ -13,16 +13,8 @@ class CreateGradoSeccionEstudianteTable extends Migration
      */
     public function up()
     {
-        Schema::create('grado_seccion_estudiante', function (Blueprint $table) {
+        Schema::create('grado_seccion_estudiante', function (Blueprint $table){
             $table->increments('id');
-            $table->integer('seccion_id')->unsigned();
-
-            $table->foreign('seccion_id')->references('id')->on('secciones');
-
-            $table->integer('grado_id')->unsigned();
-
-            $table->foreign('grado_id')->references('id')->on('grados');
-
             $table->integer('ano_escolar_id')->unsigned();
 
             $table->foreign('ano_escolar_id')->references('id')->on('ano_escolares');
@@ -30,6 +22,10 @@ class CreateGradoSeccionEstudianteTable extends Migration
             $table->integer('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->integer('grado_seccion_id')->unsigned();
+
+            $table->foreign('grado_seccion_id')->references('id')->on('grado_seccion');
         });
     }
 
