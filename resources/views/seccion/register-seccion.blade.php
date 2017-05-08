@@ -29,7 +29,7 @@
                         </p>
                     @endif
                 </div>
-                <input type="hidden" name="status" value="activo">
+                <input type="hidden" name="status" value="enable">
 
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

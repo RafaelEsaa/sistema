@@ -8,13 +8,8 @@ class GradoSeccionEstudiante extends Model
 {
     protected $table = 'grado_seccion_estudiante';
 
-    public function seccion()
+    public function gradoseccion()
     {
-        return $this->belongsTo('App\Models\Seccion');
-    }
-
-    public function grado()
-    {
-        return $this->belongsTo('App\Models\Grado');
+        return $this->belongsTo('App\Models\GradoSeccion');
     }
 }

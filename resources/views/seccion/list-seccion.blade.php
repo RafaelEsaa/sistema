@@ -27,13 +27,13 @@
                             <td><p class="message-success">Habilitado</p></td>
                             <td>
                                 <a href="{{url('/listar-seccion-disable/'.$secciones->id)}}"><button type="button" class="btn btn-danger">Inhabilitar</button></a>
-                                <a href="{{url('/xxxx/'.$secciones->id)}}"><button type="button" class="btn btn-primary">Actualizar</button></a>
+
                             </td>
                         @else
                             <td><p class="message-danger">Inhabilitado</p></td>
                             <td>
                                 <a href="{{url('/listar-seccion-enable/'.$secciones->id)}}"><button type="button" class="btn btn-primary">Habilitar</button></a>
-                                <a href="{{url('/xxxx/'.$secciones->id)}}"><button type="button" class="btn btn-primary">Actualizar</button></a>
+
                             </td>
                         @endif
 

@@ -43,13 +43,11 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/register-grado">Registrar Grado</a></li>
                                 <li><a href="/listar-grado">Listar Grado</a></li>
+                                <li class="divider"></li>
                                 <li><a href="/register-seccion">Registrar Sección</a></li>
                                 <li><a href="/listar-seccion">Listar Sección</a></li>
-                                <li><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Reviews <span class="badge">1,118</span></a></li>

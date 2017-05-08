@@ -23,6 +23,7 @@ class CreateGradoSeccionTable extends Migration
             $table->integer('grado_id')->unsigned();
 
             $table->foreign('grado_id')->references('id')->on('grados');
+            $table->timestamps();
         });
     }
 

@@ -11,10 +11,4 @@ class Seccion extends Model
     ];
 
     protected $table = 'secciones';
-
-    public function grados()
-    {
-        return $this->belongsToMany('App\Models\Grado', 'grado_seccion',
-            'seccion_id', 'grado_id');
-    }
 }

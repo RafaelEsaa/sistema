@@ -29,6 +29,8 @@ class SeccionController extends Controller
         $seccion->nombre_seccion = strtoupper($data['nombre_seccion']);
         $seccion->status = $data['status'];
         $seccion->save();
+
+        return back()->with('status', 'Seccion Registrada');
     }
 
     public function getListSeccion(){

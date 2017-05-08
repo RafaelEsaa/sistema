@@ -32,12 +32,11 @@ class UserController extends Controller
     }
 
     public function getViewRegisterStudent(){
-        //return view('student/register-student');
         $grado = Grado::all();
-        $seccion = Seccion::all();
+        $seccion = Seccion::all()->where('status', 'enable');
         $anoEscolar = AnoEscolar::all()->where('status', 'enable');
+
         return view('student/register-student')
-            ->with('saludo', 'Hola Mundo')
             ->with('grado', $grado)
             ->with('seccion', $seccion)
             ->with('anoEscolar', $anoEscolar);

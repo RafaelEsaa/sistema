@@ -129,22 +129,20 @@
                         <select name="seccion_id" class="form-control">
                             @foreach($seccion as $secciones)
                                 @if($secciones->status == "enable")
-                                        <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
-                                @else
-                                    <p>No hay seccion activa</p>
+                                    <option value="{{$secciones->id}}">{{$secciones->nombre_seccion}}</option>
                                 @endif
                             @endforeach
                         </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Año Escolar</label>
-                    <select name="ano_escolar_id" class="form-control">
-                            @if($anoEscolar->last()->status == "enable")
-                                <option value="{{$anoEscolar->last()->id}}">{{$anoEscolar->last()->nombre_ano}}</option>
-                            @else
-                                <p>No hay Año Escolar Activo</p>
+                    <label>Sección</label>
+                    <select name="seccion_id" class="form-control">
+                        @foreach($anoEscolar as $ano)
+                            @if($loop->last)
+                                <option value="{{$ano->id}}">{{$ano->nombre_ano}}</option>
                             @endif
+                        @endforeach
                     </select>
                 </div>
 
