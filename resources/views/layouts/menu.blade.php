@@ -47,6 +47,8 @@
                                 <li><a href="/register-seccion">Registrar Sección</a></li>
                                 <li><a href="/listar-seccion">Listar Sección</a></li>
                                 <li class="divider"></li>
+                                <li><a href="/register-ano-escolar">Registrar Año Escolar</a></li>
+                                <li><a href="/listar-ano-escolar">Listar Año Escolar</a></li>
                                 <li class="dropdown-header">Nav header</li>
                             </ul>
                         </li>

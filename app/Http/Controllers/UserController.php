@@ -44,23 +44,6 @@ class UserController extends Controller
 
     public function registerStudent(Request $request){
 
-        /*$validator = RepresentanteValidations::registerRepresentanteValidation($data);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator, 'registerRepresentante')
-                ->withInput();
-        }*/
-
-        /*$studentValidation = UserValidations::registerValidation($data);
-        $representanteValidation = RepresentanteValidations::registerRepresentanteValidation($data);
-
-        if ($studentValidation->fails() && $representanteValidation->fails()) {
-            return redirect()->back()
-                ->withErrors($studentValidation, 'register')
-                ->withErrors($representanteValidation,'registerRepresentante')
-                ->withInput();
-        }*/
-
         $data = $request->all();
 
         $validator = UserValidations::registerValidation($data);

@@ -15,10 +15,10 @@
                 </div>
             @endif
         </div>
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-8 col-sm-offset-2 section-register-student">
             <form action="/register-student" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group form-group{{ $errors->register->has('cedula') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('cedula') ? ' has-error' : '' }}">
                     <label>Cedula de Identidad</label>
                     <input type="text" name="cedula" value="{{ old('cedula') }}" class="form-control" maxlength="8" placeholder="Cedula">
                     @if ($errors->register->has('cedula'))
@@ -27,7 +27,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('primer_nombre') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('primer_nombre') ? ' has-error' : '' }}">
                     <label>Primer Nombre</label>
                     <input type="text" name="primer_nombre" value="{{ old('primer_nombre') }}" maxlength="45" class="form-control" placeholder="Primer Nombre">
                     @if ($errors->register->has('primer_nombre'))
@@ -36,7 +36,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('segundo_nombre') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('segundo_nombre') ? ' has-error' : '' }}">
                     <label>Segundo Nombre</label>
                     <input type="text" name="segundo_nombre" value="{{ old('segundo_nombre') }}" class="form-control" maxlength="45" placeholder="Segundo Nombre">
                     @if ($errors->register->has('segundo_nombre'))
@@ -45,7 +45,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('primer_apellido') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('primer_apellido') ? ' has-error' : '' }}">
                     <label>Primer Apellido</label>
                     <input type="text" name="primer_apellido" value="{{ old('primer_apellido') }}" class="form-control" maxlength="45" placeholder="Primer Apellido">
                     @if ($errors->register->has('primer_apellido'))
@@ -54,7 +54,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('segundo_apellido') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('segundo_apellido') ? ' has-error' : '' }}">
                     <label>Segundo Apellido</label>
                     <input type="text" name="segundo_apellido" value="{{ old('segundo_apellido') }}" class="form-control" maxlength="45" placeholder="Segundo Apellido">
                         @if ($errors->register->has('segundo_apellido'))
@@ -63,7 +63,7 @@
                             </p>
                         @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('fecha_nacimiento') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('fecha_nacimiento') ? ' has-error' : '' }}">
                     <label>Fecha Nacimiento</label>
                     <input type="date" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" class="form-control" maxlength="45" placeholder="Fecha Nacimiento">
                     @if ($errors->register->has('fecha_nacimiento'))
@@ -72,7 +72,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('telefono') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('telefono') ? ' has-error' : '' }}">
                     <label>Telefono</label>
                     <input type="text" name="telefono" value="{{ old('telefono') }}" class="form-control" maxlength="11" placeholder="Telefono">
                     @if ($errors->register->has('telefono'))
@@ -81,7 +81,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('direccion') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('direccion') ? ' has-error' : '' }}">
                     <label>Dirección</label>
                     <input type="text" name="direccion" value="{{ old('direccion') }}" class="form-control" maxlength="45" placeholder="Dirección">
                     @if ($errors->register->has('direccion'))
@@ -90,7 +90,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="form-group form-group{{ $errors->register->has('email') ? ' has-error' : '' }}">
+                <div class="form-group form-group col-md-6 height-input{{ $errors->register->has('email') ? ' has-error' : '' }}">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                     @if ($errors->register->has('email'))
@@ -100,9 +100,9 @@
                     @endif
                 </div>
 
-                <div class="form-group {{ $errors->register->has('representante_id') ? ' has-error' : '' }}">
-                    <label>Representante</label>
-                    <input type="text" placeholder="Buscar Representante" class="form-control" id="search_text">
+                <div class="form-group col-md-6 height-input{{ $errors->register->has('representante_id') ? ' has-error' : '' }}">
+                    <label>Representante (Cedula)</label>
+                    <input type="text" placeholder="Cedula Representante" class="form-control" id="search_text">
                     <input type="hidden" name="representante_id" id="buscado">
                     @if ($errors->register->has('representante_id'))
                         <p class="message-danger">
@@ -111,7 +111,7 @@
                     @endif
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-md-6 height-input">
                     <label>Grado</label>
                         <select name="grado_id" class="form-control">
                             @foreach($grado as $grados)
@@ -124,7 +124,7 @@
                         </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-md-6 height-input">
                     <label>Sección</label>
                         <select name="seccion_id" class="form-control">
                             @foreach($seccion as $secciones)
@@ -135,8 +135,8 @@
                         </select>
                 </div>
 
-                <div class="form-group">
-                    <label>Sección</label>
+                <div class="form-group col-md-6 height-input">
+                    <label>Año Escolar</label>
                     <select name="seccion_id" class="form-control">
                         @foreach($anoEscolar as $ano)
                             @if($loop->last)
@@ -145,8 +145,9 @@
                         @endforeach
                     </select>
                 </div>
-
-                <button type="submit" class="btn btn-default">Submit</button>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
             </form>
         </div>
     </div>

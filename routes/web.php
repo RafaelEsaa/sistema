@@ -65,6 +65,13 @@ Route::get('/register-gradoseccion', 'GradoSeccionController@getViewRegisterGrad
 Route::post('/register-gradoseccion', 'GradoSeccionController@registerGradoSeccion');
 
 
+/*-- Año Escolar */
+Route::get('/register-ano-escolar', 'AnoEscolarController@getViewRegisterAnoEscolar');
+
+Route::post('/register-ano-escolar', 'AnoEscolarController@registerAnoEscolar');
+
+Route::get('/listar-ano-escolar', 'AnoEscolarController@getViewListarAnoEscolar');
+
 
 
 /*-- PRUEBA JQUERY --*/

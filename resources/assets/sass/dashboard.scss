@@ -122,8 +122,23 @@
 }
 
 .navbar-default {
-  height: 100%;
-  @media screen and (max-width: 767px) {
-    height:auto;
+  height: 100vw;
+  margin: 0px;
+}
+
+// -- SASS MIX --
+.section-register-student{
+  padding-top: 50px;
+  .height-input{
+    height: 95px;
+    margin: 0px;
+  }
+}
+
+.section-register-representante{
+  padding-top: 50px;
+  .height-input{
+    height: 95px;
+    margin: 0px;
   }
 }
