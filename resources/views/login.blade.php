@@ -4,6 +4,9 @@
 
     <div class="container">
         <div class="row">
+            <div id="app">
+
+            </div>
             <div class="col-sm-6 col-md-4 col-md-offset-4 login-form">
                 <div class="account-wall">
                     <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"

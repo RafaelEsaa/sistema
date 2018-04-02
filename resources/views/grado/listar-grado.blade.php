@@ -6,16 +6,18 @@
 
 @section('content')
 
+<h2 class="text-center">Listar Grado</h2>
+
     <div class="col-sm-9">
         <div class="col-sm-8 col-sm-offset-2">
 
             <table class="table table-hover">
                 <thead>
-                <tr>
-                    <th>Registro</th>
-                    <th>Status</th>
-                    <th>Acciones</th>
-                </tr>
+                    <tr>
+                        <th>Registro</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
                 @foreach($grado as $grados)

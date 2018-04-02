@@ -110,11 +110,27 @@ class AnoEscolarController extends Controller
     public function getViewListarAnoEscolar(){
 
         $anoEscolar = AnoEscolar::all();
-        foreach ($anoEscolar as $aja){
-            echo $aja->nombre_ano;
-        }
+        return view('anoescolar/listar-ano-escolar')->with('anoEscolar', $anoEscolar);
+    }
 
-        return view('anoescolar/listar-ano-escolar');
+    //Inhabilitar Ano Escolar
+    public function getDisableAnoEscolar($id){
+        echo "disable";
+        /*$anoEscolar = AnoEscolar::find($id);
+        $anoEscolar->status = "disable";
+        $anoEscolar->save();*/
+
+        return back();
+    }
+
+    //Habilitar Ano Escolar
+    public function getEnableAnoEscolar($id){
+        echo "enable";
+        /*$anoEscolar = AnoEscolar::find($id);
+        $anoEscolar->status = "enable";
+        $anoEscolar->save();*/
+
+        return back();
     }
 
 }

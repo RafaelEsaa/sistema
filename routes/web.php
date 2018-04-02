@@ -72,7 +72,9 @@ Route::post('/register-ano-escolar', 'AnoEscolarController@registerAnoEscolar');
 
 Route::get('/listar-ano-escolar', 'AnoEscolarController@getViewListarAnoEscolar');
 
+Route::get('/listar-ano-escolar-disable/{id}', 'AnoEscolarController@getDisableAnoEscolar');
 
+Route::get('/listar-ano-escolar-enable/{id}', 'AnoEscolarController@getEnableAnoEscolar');
 
 /*-- PRUEBA JQUERY --*/
 //Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'AutoCompleteController@index'));
