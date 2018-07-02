@@ -12,4 +12,8 @@ class Grado extends Model
 
     protected $table = 'grados';
 
+    public function gradoseccion()
+    {
+        return $this->belongsToMany('App\Models\GradoSeccion');
+    }
 }

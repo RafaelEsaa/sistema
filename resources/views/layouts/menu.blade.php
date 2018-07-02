@@ -19,11 +19,10 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/register-representante">Registrar Representante</a></li>
                                 <li><a href="/register-student">Inscribir Alumno</a></li>
-                                <li><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li class="dropdown-header">Busquedad</li>
+                                <li><a href="#">Listar Representante</a></li>
+                                <li><a href="#">Listar Alumno</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -49,7 +48,8 @@
                                 <li class="divider"></li>
                                 <li><a href="/register-ano-escolar">Registrar Año Escolar</a></li>
                                 <li><a href="/listar-ano-escolar">Listar Año Escolar</a></li>
-                                <li class="dropdown-header">Nav header</li>
+                                <li class="divider"></li>
+                                <li><a href="/register-gradoseccion">Asignar Grado Sección</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Reviews <span class="badge">1,118</span></a></li>

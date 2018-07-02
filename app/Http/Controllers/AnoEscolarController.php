@@ -116,9 +116,9 @@ class AnoEscolarController extends Controller
     //Inhabilitar Ano Escolar
     public function getDisableAnoEscolar($id){
         echo "disable";
-        /*$anoEscolar = AnoEscolar::find($id);
+        $anoEscolar = AnoEscolar::find($id);
         $anoEscolar->status = "disable";
-        $anoEscolar->save();*/
+        $anoEscolar->save();
 
         return back();
     }
@@ -126,9 +126,9 @@ class AnoEscolarController extends Controller
     //Habilitar Ano Escolar
     public function getEnableAnoEscolar($id){
         echo "enable";
-        /*$anoEscolar = AnoEscolar::find($id);
+        $anoEscolar = AnoEscolar::find($id);
         $anoEscolar->status = "enable";
-        $anoEscolar->save();*/
+        $anoEscolar->save();
 
         return back();
     }

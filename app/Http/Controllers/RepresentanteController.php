@@ -44,4 +44,9 @@ class RepresentanteController extends Controller{
 
         return back()->with('status', 'Fallo el Registro!');
     }
+
+    public function getViewLista(){
+
+        return view('representante/lista-representante');
+    }
 }

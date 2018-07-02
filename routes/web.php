@@ -36,6 +36,8 @@ Route::get('/register-representante', 'RepresentanteController@getViewRegister')
 
 Route::post('/register-representante', 'RepresentanteController@registerRepresentante');
 
+Route::get('/lista-representantes', 'RepresentanteController@getViewLista');
+
 /*-- Seccion --*/
 Route::get('/register-seccion', 'SeccionController@getViewRegisterSeccion');
 
@@ -58,12 +60,10 @@ Route::get('/listar-grado-disable/{id}', 'GradoController@getDisableGrado');
 
 Route::get('/listar-grado-enable/{id}', 'GradoController@getEnableGrado');
 
-
 /*-- Grado Seccion --*/
 Route::get('/register-gradoseccion', 'GradoSeccionController@getViewRegisterGradoSeccion');
 
 Route::post('/register-gradoseccion', 'GradoSeccionController@registerGradoSeccion');
-
 
 /*-- Año Escolar */
 Route::get('/register-ano-escolar', 'AnoEscolarController@getViewRegisterAnoEscolar');

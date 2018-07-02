@@ -44,13 +44,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Representante');
     }
 
-    public function role()
+    public function roles()
     {
         return $this->belongsToMany('App\Models\Role');
-    }
-
-    public function gradoseccion()
-    {
-        return $this->hasMany('App\Models\GradoSeccion');
     }
 }

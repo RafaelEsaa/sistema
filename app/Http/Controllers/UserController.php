@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\User;
+use App\Models\Role;
 use App\Models\Grado;
 use App\Models\Seccion;
 use App\Models\AnoEscolar;
 use App\Models\GradoSeccion;
 use App\Models\Representante;
-use Illuminate\Http\Request;
+use App\Models\GradoSeccionEstudiante;
 use App\Validations\UserValidations;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -53,10 +55,10 @@ class UserController extends Controller
                 ->withInput();
         }
 
-        $grado = new Grado();
+        $gradoSeccionEstudiante = new GradoSeccionEstudiante();
 
         $userStudent = new User();
-        $userStudent->cedula= $data['cedula'];
+        $userStudent->cedula = $data['cedula'];
         $userStudent->primer_nombre = $data['primer_nombre'];
         $userStudent->segundo_nombre = $data['segundo_nombre'];
         $userStudent->primer_apellido = $data['primer_apellido'];
@@ -72,13 +74,12 @@ class UserController extends Controller
         $userStudent->save();
 
         if ($userStudent->save()){
-
             $userStudent->roles()->attach(5);
-            $grado->secciones()->attach([
-                    ['seccion_id' => $request['seccion_id'],
-                    'grado_id' => $data['grado_id'],
+            $gradoSeccionID = GradoSeccionEstudiante::find()->where('title', 'foo')->first();
+            $gradoSeccionEstudiante->gradoSeccionEstudiantes()->attach([
+                    //'grado_seccion_id' => ,
                     'ano_escolar_id' => $data['ano_escolar_id'],
-                    'user_id' => $userStudent->id]]);
+                    'user_id' => $userStudent->id]);
 
             return back()->with('status', 'Estudiante Inscrito y Representante Asignado!');
         }

@@ -12,6 +12,11 @@ class GradoSeccion extends Model
         'status',
     ];
 
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
     public function grado()
     {
         return $this->belongsTo('App\Models\Grado');
@@ -20,5 +25,9 @@ class GradoSeccion extends Model
     public function seccion()
     {
         return $this->belongsTo('App\Models\Seccion');
+    }
+
+    public function gradoSeccionEstudiantes(){
+        return $this->hasMany('App\Models\GradoSeccionEstudiante');
     }
 }
